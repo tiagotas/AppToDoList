@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppToDoList.MainPage">
+
+    <StackLayout>
+        <Label Text="Descrição" />
+        <Entry x:Name="txt_descricao" />
+
+        <Label Text="Data Criação" />
+        <DatePicker x:Name="dtpck_data_criacao" />
+
+        <Button Text="Salvar" Clicked="Button_Clicked" />
+
+    </StackLayout>
+
+</ContentPage>
