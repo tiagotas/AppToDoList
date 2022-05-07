@@ -3,6 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppToDoList.MainPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Listagem" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
     <StackLayout>
         <Label Text="Descrição" />
         <Entry x:Name="txt_descricao" />
@@ -11,6 +15,8 @@
         <DatePicker x:Name="dtpck_data_criacao" />
 
         <Button Text="Salvar" Clicked="Button_Clicked" />
+
+        <!-- <Button Text="Listagem" Clicked="ToolbarItem_Clicked" /> -->
 
     </StackLayout>
 

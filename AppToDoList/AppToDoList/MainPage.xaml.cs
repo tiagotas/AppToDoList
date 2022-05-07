@@ -28,5 +28,10 @@ namespace AppToDoList
 
             DisplayAlert("Sucesso", "Salvou no SQLite", "OK");
         }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Listagem());
+        }
     }
 }

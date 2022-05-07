@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppToDoList.Listagem">
+    <ContentPage.Content>
+        <StackLayout>
+            <RefreshView x:Name="atualizando" IsRefreshing="True">
+                <ListView x:Name="lista">
+                    <ListView.Header>
+                        <Grid RowDefinitions="Auto"
+                              ColumnDefinitions="*,*,*">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Id" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="Descrição" />
+                            <Label Grid.Row="0" Grid.Column="2" Text="Data" />
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid RowDefinitions="Auto" 
+                                      ColumnDefinitions="*,*,*">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Descricao}" />
+                                    <Label Grid.Row="0" Grid.Column="2" 
+                                       Text="{Binding Data_Criacao, StringFormat='{}{0:dd/MM/yyyy}'}" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
