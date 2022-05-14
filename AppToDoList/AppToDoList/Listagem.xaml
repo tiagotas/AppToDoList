@@ -17,6 +17,10 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
+                               <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+                                </ViewCell.ContextActions>
+                              
                                 <Grid RowDefinitions="Auto" 
                                       ColumnDefinitions="*,*,*">
                                     <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
