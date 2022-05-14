@@ -37,5 +37,35 @@ namespace AppToDoList
 
             lista.ItemsSource = tarefas;
         }
+        
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            ObservableCollection<Tarefa> tarefas = new ObservableCollection<Tarefa>();
+
+            MenuItem disparador = (MenuItem)sender;
+
+            Tarefa tarefa_selecionada = (Tarefa)disparador.BindingContext;
+
+            bool confirmacao = await DisplayAlert("Tem ctza?", "Remover a Tarefa?", "Sim", "Não");
+
+            if (confirmacao)
+            {
+                await System.Threading.Tasks.Task.Run(async () =>
+                {
+                    await App.Database.Delete(tarefa_selecionada.Id);
+
+                    List<Tarefa> temp = await App.Database.GetAllRows();
+
+                    foreach (Tarefa item in temp)
+                    {
+                        tarefas.Add(item);
+                    }
+
+                    atualizando.IsRefreshing = false;
+                });
+
+                lista.ItemsSource = tarefas;
+            }
+        }
     }
 }
