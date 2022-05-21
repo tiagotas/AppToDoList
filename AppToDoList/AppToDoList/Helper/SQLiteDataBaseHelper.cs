@@ -42,5 +42,12 @@ namespace AppToDoList.Helper
             return _connection.QueryAsync<Tarefa>(sql,
                 t.Descricao, t.Data_Criacao, t.Data_Conclusao, t.Id);
         }
+
+        public Task<List<Tarefa>> Search(string q)
+        {
+            string sql = "SELECT * FROM tarefa WHERE Descricao LIKE '%" + q + "%'";
+
+            return _connection.QueryAsync<Tarefa>(sql);
+        }
     }
 }

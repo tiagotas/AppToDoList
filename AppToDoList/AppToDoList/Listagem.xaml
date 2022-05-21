@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppToDoList.Listagem">
+             x:Class="AppToDoList.Listagem"
+             Title="Lista de Tarefas">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <SearchBar x:Name="txt_busca"
+                           Placeholder="O que vc deseja buscar?"
+                           HorizontalOptions="FillAndExpand"
+                           TextChanged="txt_busca_TextChanged" />
+            </StackLayout>
+
             <RefreshView x:Name="atualizando" IsRefreshing="True">
                 <ListView x:Name="lista" ItemSelected="lista_ItemSelected">
                     <ListView.Header>

@@ -77,5 +77,26 @@ namespace AppToDoList
                 BindingContext = tarela_selecionada
             });
         }
+
+        private void txt_busca_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ObservableCollection<Tarefa> tarefas = new ObservableCollection<Tarefa>();
+
+            string q = e.NewTextValue;
+
+            Task.Run(async () =>
+            {
+                List<Tarefa> temp = await App.Database.Search(q);
+
+                foreach (Tarefa item in temp)
+                {
+                    tarefas.Add(item);
+                }
+
+                atualizando.IsRefreshing = false;
+            });
+
+            lista.ItemsSource = tarefas;
+        }
     }
 }
