@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppToDoList.AbrirTarefa">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Código:" />
+            <Label x:Name="lbl_id" Text="{ Binding Id }" />
+            
+            <Label Text="Descrição" />
+            <Entry x:Name="txt_descricao" Text="{ Binding Descricao }" />
+
+            <Label Text="Data Criação" />
+            <DatePicker x:Name="dtpck_data_criacao" Date="{ Binding Data_Criacao }" />
+
+            <Label Text="Data Conclusão" />
+            <DatePicker x:Name="dtpck_data_conclusao" Date="{ Binding Data_Conclusao }" />
+
+            <Button Text="Salvar" Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

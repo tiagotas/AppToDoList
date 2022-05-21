@@ -67,5 +67,15 @@ namespace AppToDoList
                 lista.ItemsSource = tarefas;
             }
         }
+
+        private void lista_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Tarefa tarela_selecionada = (Tarefa)e.SelectedItem;
+
+            Navigation.PushAsync(new AbrirTarefa
+            {
+                BindingContext = tarela_selecionada
+            });
+        }
     }
 }

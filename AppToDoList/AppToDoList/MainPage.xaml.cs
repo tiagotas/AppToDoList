@@ -18,15 +18,17 @@ namespace AppToDoList
             InitializeComponent();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             Tarefa t = new Tarefa();
             t.Descricao = txt_descricao.Text;
             t.Data_Criacao = dtpck_data_criacao.Date;
 
-            App.Database.Save(t);
+            await App.Database.Save(t);
 
-            DisplayAlert("Sucesso", "Salvou no SQLite", "OK");
+            await DisplayAlert("Sucesso", "Salvou no SQLite", "OK");
+
+            await Navigation.PushAsync(new Listagem());            
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

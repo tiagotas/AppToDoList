@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout>
             <RefreshView x:Name="atualizando" IsRefreshing="True">
-                <ListView x:Name="lista">
+                <ListView x:Name="lista" ItemSelected="lista_ItemSelected">
                     <ListView.Header>
                         <Grid RowDefinitions="Auto"
                               ColumnDefinitions="*,*,*">
